@@ -46,16 +46,15 @@ cd ..
 
 ### 2. Set up environment variables
 
+Copy the `.env` file (đính kèm trong email nộp bài) vào thư mục `server/`:
+
 ```bash
-cp server/.env.example server/.env
+cp /path/to/downloaded/.env server/.env
 ```
 
-The app works out-of-the-box without any API keys (uses built-in AI). To enable Groq and Gemini models, add your keys to `server/.env`:
+Hoặc tạo file `server/.env` thủ công rồi paste nội dung từ file đính kèm vào.
 
-- **Groq** — Free at [console.groq.com](https://console.groq.com/)
-- **Gemini** — Free at [ai.google.dev](https://ai.google.dev/)
-
-> **Note:** MongoDB is also optional. If not available, chat history is stored in memory.
+> **Note:** App vẫn chạy được khi không có API keys (sử dụng built-in AI). MongoDB cũng là optional — nếu không có, chat history sẽ lưu trong memory.
 
 ### 3. Run the application
 
