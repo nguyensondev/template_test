@@ -21,24 +21,17 @@ A full-stack chat application built with React + Vite (frontend) and Node.js + E
 | Database | MongoDB (optional — in-memory fallback) |
 | AI Models | Google Gemini 2.0 Flash Lite, Groq Llama 4 Scout, Built-in |
 
-## Prerequisites
+## Getting Started
+
+### Prerequisites
 
 - **Node.js** v18 or higher
 - **MongoDB** (optional — the app works without it using in-memory storage)
 
-## Getting Started
-
-### 1. Clone the repository
+### 1. Install dependencies
 
 ```bash
-git clone <repo-url>
-cd Template_Test
-```
-
-### 2. Install dependencies
-
-```bash
-# Root dependencies (concurrently)
+# Root dependencies
 npm install
 
 # Server dependencies
@@ -51,28 +44,20 @@ cd ../client && npm install
 cd ..
 ```
 
-### 3. Set up environment variables
+### 2. Set up environment variables
 
 ```bash
 cp server/.env.example server/.env
 ```
 
-Edit `server/.env` and add your API keys:
+The app works out-of-the-box without any API keys (uses built-in AI). To enable Groq and Gemini models, add your keys to `server/.env`:
 
-```env
-GEMINI_API_KEY=your_gemini_api_key_here
-GROQ_API_KEY=your_groq_api_key_here
-MONGODB_URI=mongodb://127.0.0.1:27017/chatbot
-PORT=5001
-```
+- **Groq** — Free at [console.groq.com](https://console.groq.com/)
+- **Gemini** — Free at [ai.google.dev](https://ai.google.dev/)
 
-> **Note:** All API keys are optional. Without them, the app uses the built-in AI responses.
+> **Note:** MongoDB is also optional. If not available, chat history is stored in memory.
 
-**Get free API keys:**
-- **Groq:** [console.groq.com](https://console.groq.com/) — Free tier with generous limits
-- **Gemini:** [ai.google.dev](https://ai.google.dev/) — Free tier available
-
-### 4. Run the application
+### 3. Run the application
 
 ```bash
 npm start
@@ -84,7 +69,7 @@ This starts both:
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Alternative: Run server and client separately
+#### Alternative: Run separately
 
 ```bash
 # Terminal 1 — Server
@@ -131,7 +116,7 @@ cd client && npm run dev
 
 | Problem | Solution |
 |---------|----------|
-| `MongoDB not available` warning | This is normal if MongoDB isn't installed. The app uses in-memory storage. |
+| `MongoDB not available` warning | This is normal if MongoDB isn't installed. The app uses in-memory storage instead. |
 | Port 5001 already in use | Change `PORT` in `server/.env` |
 | Port 3000 already in use | Change `server.port` in `client/vite.config.js` |
-| Gemini/Groq API errors | Check your API keys in `server/.env` |
+| Gemini/Groq API errors | Verify your API keys in `server/.env` |
